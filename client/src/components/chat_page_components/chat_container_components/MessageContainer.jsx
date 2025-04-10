@@ -77,21 +77,17 @@ function MessageContainer() {
 
   const downloadFile = async (filePath) => {
     try {
-      // Extract filename from URL (removing timestamp prefix if exists)
       const filename = filePath.split('/').pop().replace(/^\d+-/, '');
       
-      // Fetch the file from Cloudinary
       const response = await apiClient.get(filePath, {
         responseType: 'blob',
       });
   
-      // Create a temporary URL for the blob
       const url = window.URL.createObjectURL(new Blob([response.data]));
   
-      // Create a temporary anchor element to trigger download
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', filename); // Set the filename
+      link.setAttribute('download', filename); 
       document.body.appendChild(link);
       link.click();
   
@@ -100,7 +96,6 @@ function MessageContainer() {
       window.URL.revokeObjectURL(url);
     } catch (error) {
       console.error('Error downloading file:', error);
-      // Fallback: Open in new tab if download fails
       window.open(filePath, '_blank');
     }
   }; 

@@ -47,20 +47,15 @@ const Auth = () => {
 
   const handleLogin = async () => {
     if(validateLogin()) {
-      alert('validated');
       try {
-        console.log('login validated successfully');
-
         const response = await apiClient.post(LOGIN_ROUTE, {email, password}, {withCredentials: true});
-        alert(response.data.msg);
-        alert("user: " + JSON.stringify(response.data.user));
-
         console.log('response.data.user -> ' + response.data.user._id)
         
         if(response.data.user._id){
           setUserInfo(response.data.user);
           if(response.data.user.prfileSetup) navigate('/chat');
           else navigate('/profile');
+          toast.success('Login successful');
         }
       }catch (error) {
         console.error("error occured: " + error);
@@ -71,15 +66,13 @@ const Auth = () => {
 
   const handleSignup = async () => {
     if(validateSignup()) {
-      alert('validated');
       try {
         console.log('signup validated successfully');
         const response = await apiClient.post(SIGNUP_ROUTE, {email, password}, {withCredentials: true});
-        alert(response.data.msg);
-        alert("user: " + JSON.stringify(response.data.user));
         if(response.status === 201) {
           setUserInfo(response.data.user);
           navigate('/profile');
+          toast.success('Signup successful');
         }
       }catch (error) {
         console.error("error occured: " + error);

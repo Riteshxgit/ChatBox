@@ -101,7 +101,7 @@ function MessageContainer() {
   }; 
 
   const renderDMMessages = (message) => {
-    const isCurrentUser = message.sender === selectedChatData._id;
+    const isCurrentUser = message.sender === userInfo._id;
     
     return (
       <div className={`mt-2 ${isCurrentUser ? 'text-right' : 'text-left'}`}>

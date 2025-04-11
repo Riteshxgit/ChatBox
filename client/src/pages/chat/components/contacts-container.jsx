@@ -6,7 +6,7 @@ import NewDM from '@/components/chat_page_components/contacts_container_componen
 import { GET_DM_CONTACTS_ROUTE, GET_USER_CHANNELS_ROUTE } from '@/utils/constants'
 import { apiClient } from '@/lib/api-client'
 import { useAppStore } from '@/store'
-import ContactsList from '@/components/chat_page_components/contacts_container_components/contactsList'
+import ContactsList from '@/components/chat_page_components/contacts_container_components/ContactsList'
 import CreateChannel from '@/components/chat_page_components/contacts_container_components/CreateChannel'
 
 function ContactsContainer() {

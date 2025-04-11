@@ -2,7 +2,7 @@ import Logo from '@/components/chat_page_components/contacts_container_component
 import Title from '@/components/chat_page_components/contacts_container_components/Title'
 import React, { useEffect, useState } from 'react'
 import ProfileInfo from '@/components/chat_page_components/contacts_container_components/ProfileInfo'
-import NewDM from '@/components/chat_page_components/contacts_container_components/NewDm'
+import NewDM from '@/components/chat_page_components/contacts_container_components/NewDM'
 import { GET_DM_CONTACTS_ROUTE, GET_USER_CHANNELS_ROUTE } from '@/utils/constants'
 import { apiClient } from '@/lib/api-client'
 import { useAppStore } from '@/store'
